@@ -1,0 +1,26 @@
+
+
+
+<h1 style="margin-bottom: 15px;">  Excel <br />{{facilityName}}<br /></h1>       
+<div class="roomSelectorDiv" style="height: 3vh; margin-top:  calc(10vh - 70px); margin-bottom: 70px;">
+    <div class="innerGroup"  class="col-sm-10" >
+        <div class="form-group" id="facilityGroupSelect" style="float: left; margin-right: 15px;">
+          <label for="facilitySelect">Facility</label><br />
+          <select id="facilitySelect" (ngModelChange)="loadAllRooms()" [(ngModel)]="facilityId" name="facilitySelect" style="width: 300px; height: 26px;">
+              <option selected disabled>Select Facility</option>
+              <option *ngFor="let facility of facilities" [ngValue]="facility.id">{{facility.name}}</option>
+          </select>
+        </div>
+        <div class="form-group" id="roomGroupSelect" style="float: left;">
+          <label for="roomSelect">Room</label><br />
+          <select id="roomSelect" [(ngModel)]="roomId" name="roomSelect" style="width: 300px; height: 26px;">
+              <option selected disabled>Select Room</option>
+              <option *ngFor="let room of rooms" [ngValue]="room.id">{{room.name}}</option>
+          </select>
+        </div>
+        <div class="form-group" id="roomGroupSelect" style="display: inline-block">
+          <button class="btn btn-lg btn-primary" (click)="WriteTodaysExcelFile(facilityId,this.roomId)" style="margin: 15px ">Open Today's Excel File</button>
+
+        </div>
+    </div>
+</div>

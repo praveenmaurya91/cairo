@@ -1,0 +1,35 @@
+
+
+table {
+    min-width: 50vw;
+    margin: auto;
+    margin-top: 10vh;
+    border: 1px solid #182e51;
+    background:#dbe7f9;
+}
+
+th, td {
+    padding: 0px 20px;
+    border-left: 1px solid #182D51;
+}
+
+thead {
+    background: #b3bfd1;
+    border-bottom: 1px solid #182e51;
+}
+
+tr:nth-child(even) {
+    background: #e8eff9;
+}
+
+tr {
+    border-bottom: 1px solid #90959b;
+}
+
+tr:nth-last-child(1) {
+    border-bottom: 1px solid black;
+}
+
+.link {
+    cursor: pointer;
+}

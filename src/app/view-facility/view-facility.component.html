@@ -1,0 +1,48 @@
+<div>
+  <div class="roomSelectorDiv" style="height: 10vh; margin-top:  calc(20vh - 70px);">
+    <div class="innerGroup" style="width: 50vw; margin: auto;">
+        <div class="form-group" id="facilityGroupSelect" style="float: left; margin-right: 15px;">
+          <label for="facilitySelect">Facility</label><br />
+          <select id="facilitySelect" (ngModelChange)="loadAllRooms()" [(ngModel)]="facilityId" name="facilitySelect" style="width: 300px; height: 26px;">
+              <option selected disabled>Select Facility</option>
+              <option *ngFor="let facility of facilities" [ngValue]="facility.id">{{facility.name}}</option>
+          </select>
+        </div>
+        <div class="form-group" id="roomGroupSelect" style="float: left;">
+          <label for="roomSelect">Room</label><br />
+          <select id="roomSelect" [(ngModel)]="roomId" name="roomSelect" style="width: 300px; height: 26px;">
+              <option selected disabled>Select Room</option>
+              <option *ngFor="let room of rooms" [ngValue]="room.id">{{room.name}}</option>
+          </select>
+        </div>
+        <div class="form-group" id="roomGroupSelect" style="display: inline-block">
+          <button class="btn btn-lg btn-primary" (click)="search()" style="margin: 5px 0px 5px 15px;">Select</button>
+        </div>
+    </div>
+  </div>
+  <div class="graphContainer" style="position: relative; height:auto; width:90vw; margin: auto; margin-bottom:0px;">
+    <canvas #graphCanvas style="height: 40vh; width: 90vw; position: relative;" baseChart
+                [datasets]="lineChartData"
+                [labels]="lineChartLabels"
+                [options]="lineChartOptions"
+                [colors]="lineChartColors"
+                [legend]="lineChartLegend"
+                [chartType]="lineChartType"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)"></canvas>
+  </div>
+  <div class="buttonContainer" style="background: #000000; position: relative; height: 10vh; width: 90vw; margin: auto;margin-bottom:0vh;">
+    <div class="col-sm-2"></div>
+    <!-- <div class="col-sm-2"><button class="gbtn" routerLink="/button1" (click)="showPreviousDay()">Previous Day</button></div> -->
+    <div class="col-sm-2"><button class="gbtn" (click)="showPreviousDay()">Previous Day</button></div>
+    <div class="col-sm-2"><button class="gbtn">Back</button></div>
+    <div class="col-sm-2"><button class="gbtn">Forward</button></div>
+    <div class="col-sm-2"><button class="gbtn" (click)="showNextDay()">Next Day</button></div>
+    <div class="col-sm-2"></div>
+    
+    
+    
+    
+    <canvas #buttonCanvas style="height: 10vh; width: 90vw;"></canvas>
+  </div>
+</div>

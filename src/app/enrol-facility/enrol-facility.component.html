@@ -1,0 +1,98 @@
+<div>
+  <div class="col-sm-3"></div>
+  <div class="col-sm-6">
+    <div class="contentBox">
+      <h1 style="margin-bottom: 25px;"><span *ngIf="this.facilityId">Edit</span><span *ngIf="!this.facilityId">Enter New</span> Facility</h1>
+      <form id="enrolmentForm">
+        <div class="form-group">
+            <label for="name">Name</label><input [(ngModel)]="facility.name" type="text" name="name" id="name" class="right" autocomplete="off"/>
+        </div>
+        <div class="form-group">
+              <label for="phone">Office Phone</label><input [(ngModel)]="facility.phone" type="text" name="phone" id="phone" class="right" autocomplete="off"/>
+          </div>
+          
+          <div class="form-group">
+              <label for="address">Address</label><input [(ngModel)]="facility.address" type="text" name="address" id="address" class="right" autocomplete="off"/>
+          </div>
+          <div class="form-group">
+              <label for="IP4a">IP4a</label><input [(ngModel)]="facility.IP4a" type="text" name="IP4a" id="IP4a" class="right" autocomplete="off"/>
+          </div>
+  
+          <div class="form-group">
+              <label for="IP4b">IP4b</label><input [(ngModel)]="facility.IP4b" type="text" name="IP4b" id="IP4b" class="right" autocomplete="off"/>
+          </div>
+  
+          <div class="form-group">
+              <label for="IP4c">IP4c</label><input [(ngModel)]="facility.IP4c" type="text" name="IP4c" id="IP4c" class="right" autocomplete="off"/>
+          </div>
+  
+          <div class="form-group">
+              <label for="IP4d">IP4d</label><input [(ngModel)]="facility.IP4d" type="text" name="IP4d" id="IP4d" class="right" autocomplete="off"/>
+          </div>
+    
+            
+        <div class="form-group">
+            <label for="primaryManager">Primary Manager</label><input [(ngModel)]="facility.primaryManager" type="text" name="primaryManager" id="primaryManager" class="right"autocomplete="off" />
+        </div>
+        <div class="form-group">
+            <label for="startingMonthYear">Established</label><input [(ngModel)]="facility.startingMonthYear" type="text" name="startingMonthYear" id="startingMonthYear" class="right" autocomplete="off"/>
+        </div>
+
+        <div class="form-group">
+              <label for="rooms">Rooms</label><input [(ngModel)]="facility.rooms" type="text" name="rooms" id="rooms" class="right" autocomplete="off" />
+        </div>
+
+      <div class="form-group" id="timezoneGroupSelect" >
+          <label for="timezoneSelect">Timezone</label>
+          <select id="timezoneSelect" [(ngModel)]="facility.timezone" name="timezoneSelect"  style="width: 300px; height: 26px;margin-left: -3px;">
+              <option >Select Timezone</option>
+              <option *ngFor="let timezone of timezones; index as i" [value]="timezones.indexOf(timezone)">{{timezone}}</option>
+          </select>
+      </div>                
+      <!-- <div class="form-group" id="siteManagerGroupSelect" >
+              <label for="siteManagerSelect">Site Manager</label>
+                  <select id="siteManagerSelect" [(ngModel)]="facility.siteManager" name="siteManagerSelect"  style="width: 300px; height: 26px;margin-left: -3px;">
+                          <option selected disabled>Select Manager</option>
+                          <option *ngFor="let siteManager of managers" [value]="manager.name.indexOf(timezone)">{{siteManager}}</option>
+                  </select>
+      </div>  -->
+      <!-- <div class="form-group" id="managerGroupSelect">
+              <label for="managerSelect">Site Manager</label>
+              <select id="managerSelect" [(ngModel)] ="managerId" name="managerSelect" style="width: 300px; height: 26px;">
+                <option selected disabled>Select Manager</option>
+                <option *ngFor="let manager of managers" [ngValue] ="managerId"> {{manager.name}} Ph {{manager.phone}} ID {{manager.id}} M {{facility.siteManager}} </option>
+              </select>
+            </div>       -->
+            <div class="form-group" id="managerGroupSelect">
+                  <label for="managerSelect">Site Manager</label>
+                  <select id="managerSelect" [(ngModel)]="this.managerID" name="managerSelect" style="width: 300px; height: 26px;margin-left: -3px;">
+                    <option selected disabled>Select Manager</option>
+                    <option *ngFor="let manager of managers" [ngValue]="this.managerID">{{manager.name}}    Ph  {{manager.phone}} </option>
+                  </select>
+                </div>      
+      
+            <!-- <div class="form-group" id="monthSelect">
+                  <label for="monthSelect"> Birth Month</label>
+                  <select id="monthSelect" [(ngModel)]="manager.birthMonth" name="monthSelect" style="width: 300px; height: 26px;margin-left: -3px;">
+                      <option selected disabled>Select Month</option>
+                      <option *ngFor="let month of months" [value]="months.indexOf(month)">{{month}}</option>
+                  </select>
+                </div> -->
+
+                
+        <div class="row">
+          <div class="form-group col-sm-4" style="text-align: right">
+              <button class="btn btn-primary btn-sm" (click)="submitForm(managerID)" id="submitBtn" style="width: 100%;">Submit</button>
+          </div>
+          <div class="form-group col-sm-4" style="text-align: right">
+              <button class="btn btn-success btn-sm" routerLink="/enrol-facility" (click)="clearForm()" style="float:left" id="newFacilityBtn">New Facility</button>
+          </div>
+          <div class="form-group col-sm-4" style="text-align: right">
+              <button class="btn btn-success btn-sm" routerLink="/view-facilities" (click)="loadFacilities()" style="margin: auto;" id="listFacilityBtn">List Facilities</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="col-sm-3"></div>
+</div>

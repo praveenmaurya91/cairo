@@ -1,0 +1,46 @@
+
+
+.contentBox {
+    min-height: 400;
+    max-width: auto;
+    padding: 60px;
+    margin: auto;
+    margin-top: calc(10vh - 100px);
+    margin-left: calc(10vh - 100px);
+    border: 1px solid #182e51;
+    background:#dbe7f9;
+    border-left: 1px solid #182D51;
+    border-right: 3px solid #182D51;
+    border-bottom: 4px solid #182D51;
+}
+    label {
+        width: 160px;        
+    }
+
+    input {
+        width: 80px;
+    }
+
+    
+    .link {
+        cursor: pointer;
+    }
+
+
+    /* 
+    .contentBox {
+    min-height: 222px;
+    max-width: 500px;
+    padding: 15px;
+    margin: auto;
+    margin-top: calc(10vh - 100px);
+    border: 1px solid #182e51;
+    background:#dbe7f9;
+}
+    label {
+        width: 90px; 
+    }
+
+    input {
+        width: 300px;
+    } */

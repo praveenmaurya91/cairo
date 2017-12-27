@@ -1,0 +1,143 @@
+<header id="showcase" >
+  <div class="container">
+    <mat-card id="card">
+      <mat-card-content>
+        <!--Material-->
+        <div class="header-content">
+          <h1>
+            Enrol Manager
+          </h1>
+          <form class="form">
+            <table class="example-full-width" cellspacing="0">
+              <tr>
+                <td>
+                  <mat-form-field class="example-full-width item">
+                    <input matInput class="label" placeholder="Name" name="name" [(ngModel)]="manager.name">
+                  </mat-form-field>
+                </td>
+                <td>
+                  <mat-form-field class="example-full-width item">
+                    <input type="tel" matInput placeholder="Telephone" name="phone"[(ngModel)]="manager.phone">
+                  </mat-form-field>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <mat-form-field class="example-full-width item">
+                    <input type="tel" matInput placeholder="User Name" name="username" [(ngModel)]="manager.username">
+                  </mat-form-field>
+                </td>
+                <td>
+                  <!--select Birth Month-->
+                  <mat-form-field class="item">
+                    <mat-select placeholder="Birth Month" [(ngModel)]="manager.birthMonth" name="monthSelect">
+                      <mat-option>None</mat-option>
+                      <mat-option *ngFor="let month of months" [value]="months.indexOf(month)">
+                        {{month}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                  <br>
+                </td>
+              </tr>
+            </table>
+            <p>
+              <mat-form-field class="example-full-width address">
+                <textarea matInput placeholder="Address"  name="address" [(ngModel)]="manager.address"></textarea>
+              </mat-form-field>
+            </p>
+            <table class="example-full-width ipv" cellspacing="0">
+              <tr>
+                <td>
+                  <mat-form-field class="example-full-width item">
+                    <input matInput placeholder="IPV4a" name="IP4a" [(ngModel)]="manager.IP4a">
+                  </mat-form-field>
+                </td>
+                <td>
+                  <mat-form-field class="example-full-width item">
+                    <input matInput placeholder="IPV4b" name="IP4b" [(ngModel)]="manager.IP4b">
+                  </mat-form-field>
+                </td>
+                <p>
+              </tr>
+            </table>
+            <table class="example-full-width" cellspacing="0">
+              <tr>
+                <td>
+                  <mat-form-field class="example-full-width item">
+                    <input matInput placeholder="IPV4c" name="IP4c" [(ngModel)]="manager.IP4c">
+                  </mat-form-field>
+                </td>
+                <td>
+                  <mat-form-field class="example-full-width item">
+                    <input matInput placeholder="IPV4d" name="IP4d" [(ngModel)]="manager.IP4d">
+                  </mat-form-field>
+                </td>
+                <p>
+              </tr>
+            </table>
+           
+            <!--select Facility 1-->
+            <mat-form-field class="item">
+              <mat-select placeholder="Facility 1" [(ngModel)]="manager.facility1" name="facility1Select">
+                <mat-option>None</mat-option>
+                <mat-option *ngFor="let facility of facilities; index as i" [value]="facility.i">
+                   {{facility.name}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+              <!--select Facility 2-->
+              <mat-form-field class="item">
+                <mat-select placeholder="Facility 2" [(ngModel)]="manager.facility2" name="facility2Select">
+                  <mat-option>None</mat-option>
+                  <mat-option *ngFor="let facility of facilities; index as i" [value]="facility.i">
+                    {{facility.name}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+              <br>
+                <!-- select Facility 3-->
+                <mat-form-field class="item">
+                  <mat-select placeholder="Facility 3" [(ngModel)]="manager.facility3" name="facility3Select">
+                    <mat-option>None</mat-option>
+                    <mat-option *ngFor="let facility of facilities; index as i" [value]="facility.i">
+                      {{facility.name}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                  <!--select facility 4-->
+                  <mat-form-field class="item">
+                    <mat-select placeholder="Facility 4" [(ngModel)]="manager.facility4" name="facility4Select">
+                      <mat-option>None</mat-option>
+                      <mat-option *ngFor="let facility of facilities; index as i" [value]="facility.i">
+                        {{facility.name}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                  <br> <br>
+            <div id="facilityGroupDisplay">
+                    <mat-label for="callFacility">Call Facility</mat-label> 
+                    <span class="right" id="callFacility" name="callFacility">N/A</span>
+            </div> 
+            <br>
+            <!--button-->
+                <div class="row">
+                  <div class="col-sm-4 buttons">
+                    <button mat-raised-button color="primary" class="btn" (click)="submitForm()" id="submitBtn">Submit</button>
+                  </div>
+                  <br>
+                  <div class="col-sm-4 buttons" >
+                    <a mat-raised-button color="accent" class="btn"  (click)="clearForm()"  id="newManagerBtn">New Manager</a>
+                  </div>
+                  <br>
+                  <div class="col-sm-4 buttons" >
+                    <a mat-raised-button color="warn" class="btn" routerLink="/view-managers" (click)="loadManagers()"  id="listManagerBtn">List Managers</a>
+                  </div>
+                </div>
+          </form>
+        </div>
+      </mat-card-content>
+    </mat-card>
+ 
+  </div>
+</header>

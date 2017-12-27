@@ -1,0 +1,56 @@
+<div>
+  <div class="col-sm-3"></div>
+  <div class="col-sm-6">
+    <div class="contentBox">
+        <h1 style="margin-bottom: 15px;">  Edit Stages <br />{{facilityName}}<br /></h1>       
+        <h2 style="margin-bottom: 15px;"> {{roomName}} <br /></h2>       
+        <h3 style="margin-bottom: 35px;"> Stage {{stageId -99}}<br /></h3>   
+        <form id="editstageForm">
+          <div class="form-group">
+            <div class="form-group" id="managerGroupSelect" >
+                <label for="managerSelect">Manager:</label>
+                <select id="managerSelect" (ngModelChange)="loadManagers()" [(ngModel)]="managerId" name="managerSelect" style="width: 300px; height: 26px;">
+                  <option selected disabled>Select Manager</option>
+                  <option *ngFor="let manager of managers" [ngValue]="manager.id">{{manager.name}}    Ph  {{manager.phone}} </option>
+                </select>
+              </div>       
+          
+          <label >Temp</label><input [(ngModel)]="roomStages[stageId -100].reqTemp" type="text" name="reqTemp"  style ="text-align: right"/><br />
+          <label >Co2 </label><input [(ngModel)]="roomStages[stageId -100].reqCo2"  type="text" name="reqCO2"   style ="text-align: right"/><br />
+          <label >Voc </label><input [(ngModel)]="roomStages[stageId -100].reqVoc"  type="text" name="reqVoc"   style ="text-align: right"/><br />
+          <label >Humidity</label><input [(ngModel)]="roomStages[stageId -100].reqHumidity" type="text" name="reqHumidity"  style ="text-align: right"/><br />
+          <label >Min</label><input [(ngModel)]="roomStages[stageId -100].minTime" type="text" name="minTime"  style ="text-align: right"/><br />
+          <label >Max</label><input [(ngModel)]="roomStages[stageId -100].maxTime" type="text" name="maxTime"  style ="text-align: right"/><br />
+          <label >Minutes</label>            
+        </div>
+        <div class="row" style="margin-bottom: 15px;" >
+        <div class="form-group col-sm-4" style="text-align: left"><br />
+          <button class="btn btn-success btn-sm"  [routerLink]="['/edit-room-stages', roomCycle.cycleID, roomCycle.numberStages,roomCycle.sFacility,manager.id]" 
+          (click)="saveStage(roomStages)" id="saveStageBtn" >Save Stage in Cario Controller</button><br />
+
+          <button class="btn btn-primary btn-sm" (click)="previousStage()" id="previousStageBtn" >Previous Stage</button><br />
+          </div>
+          <div class="form-group col-sm-4" style="text-align: left" style="float:right">
+            <button class="btn btn-primary btn-sm" (click)="nextStage()" id="nextStageBtn" >Next Stage</button>
+            </div>
+          </div>
+        </form>
+    </div>
+  </div>
+  <div class="col-sm-3"></div> 
+</div>
+ 
+
+<!-- asd
+          <div class="row">
+            <div class="form-group col-sm-4" style="text-align: right">
+              <button class="btn btn-primary btn-sm" (click)="submitForm()" id="submitBtn" style="width:100%;">Submit</button>
+            </div>
+            <div class="form-group col-sm-4" style="text-align: right">
+              <button class="btn btn-success btn-sm" routerLink="/enrol-manager" (click)="clearForm()" style="float:left" id="newManagerBtn">New Manager</button>
+            </div>
+            <div class="form-group col-sm-4" style="text-align: right">
+              <button class="btn btn-success btn-sm" routerLink="/view-managers" (click)="loadManagers()" style="margin:auto" id="listManagerBtn">List Managers</button>
+            </div>
+          </div>
+         -->

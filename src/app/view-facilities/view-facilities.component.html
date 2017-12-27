@@ -1,0 +1,25 @@
+<div>
+  <div class="col-sm-3"></div>
+  <table>
+    <thead>
+      <th>Name</th>
+      <th>Phone</th>
+      <th>Address</th>
+      <th>Primary Manager</th>
+      <th>Starting Month/Year</th>
+      <th>Rooms</th>
+      <th>Edit</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let facility of facilities">
+        <td>{{facility.name}}</td>
+        <td>{{facility.phone}}</td>
+        <td>{{facility.address}}</td>
+        <td>{{facility.primaryManager}}</td>
+        <td>{{facility.startingMonthYear}}</td>
+        <td>{{facility.rooms}}</td>
+        <td><i class="link fa fa-edit" [routerLink]="['/enrol-facility', facility.id]" ></i></td>
+      </tr>
+    </tbody>
+  </table>
+  </div>

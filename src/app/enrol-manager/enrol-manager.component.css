@@ -1,0 +1,61 @@
+
+   
+   #showcase{
+        background-image:url('../../assets/room.jpg');
+        background-size:cover;
+        background-position:center;
+        height:100vh;
+        display:flex;
+        flex-direction:column;
+      }
+
+#card{
+  /*height:85vh;
+  width:40vw;*/
+  width:60vh;
+  height: 90vh;
+  margin-top: 2rem;
+ /* padding-left:2rem;*/
+  position: absolute;
+  z-index:1;
+  background:#f7fafa;
+  opacity:0.85;
+
+}
+.container{
+  width:40rem;
+  
+  /*padding-left:1rem;
+  padding-right:1rem;
+  margin-bottom: 55rem;
+  text-align:center;*/
+}
+.header-content{
+  position: absolute;
+  z-index:2;
+
+}
+.header-content h1{
+  font-size:6.5vh;
+  margin-bottom:0;
+  text-align: justify;
+}
+.header-content form{
+  font-size:2vh;
+  text-align: justify;
+}
+
+.item{
+    width: 27vh;
+}
+.address{
+    width:55vh;
+}
+.buttons{
+width:27vh;
+}
+.btn{
+  font-size:2vh;
+  text-align:justify;
+}
+

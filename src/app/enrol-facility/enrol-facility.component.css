@@ -1,0 +1,17 @@
+
+.contentBox {
+    min-height: 222px;
+    padding: 15px;
+    margin: 25px;
+    margin-top: calc(25vh - 100px);
+    margin-left: calc(25vh - 100px);
+    border: 1px solid #182e51;
+    background:#dbe7f9;
+}
+    label {
+        width: 100px;        
+    }
+
+    input {
+        width: 300px;
+    }

@@ -1,0 +1,149 @@
+
+<div class="col-sm-10" >
+  <div class="contentBox">
+    <!-- <h1 style="margin-bottom: 25px;"><span> Facility: {{roomCycle.sFacility}}   Room: {{roomCycle.sRoom}}</span></h1> -->
+    <h1 style="margin-bottom: 5px;">ERS Edit Cycle <br />{{facilityName}}</h1>       
+    <h2> {{roomName}}</h2>       
+    <div class="form-group" id="managerGroupSelect" >
+        <div class="form-group">
+          <label for="managerSelect">Manager:  {{roomCycle.cycleManager}}</label>
+            <div class="form-group">
+                
+              <select id="managerSelect" (ngModelChange)="loadManagers()" [(ngModel)]="managerId" name="managerSelect" style="width: 300px; height: 26px;">
+                <option selected disabled>Manager</option>
+                <option *ngFor="let manager of managers" [ngValue]="manager.id">{{manager.name}}    Ph  {{manager.phone}} </option>
+              </select>
+              <button type="button"  style="margin: 15px;" *ngIf="managerId"  (click)="saveCycleManager(managerId)">Save Cycle Manager</button>
+            </div>      
+        </div>
+        <div class="form-group">
+            <label for="processSelect">Process:</label>
+            <div class="form-group">
+              <input [(ngModel)]="roomCycle.processName" type="text" name="Process" id="Process" class="right" />
+              <button type="button"  style="margin: 15px;" (click)="saveProcessName(roomCycle.sFacility,roomCycle.sRoom,roomCycle.cycleID-100,roomCycle.processName)">
+                Save Process Description</button>
+            </div> 
+          </div>
+          <div class="form-group">
+              <label for="startTimeSelect"> Start Time (using Facility Local Time)<br /></label>
+              <div class="form-group">
+                <input [(ngModel)]="roomCycle.startTime" type="text" name="startTime" id="startTime" class="right" />
+                <button type="button"  style="margin: 15px;" (click)="saveStartTime(roomCycle)">                            
+                  Save Local Facility Start Time</button>
+              </div> 
+            </div>
+          </div> 
+      
+      <!-- "deleteRoomStage(roomCycle.cycleID, roomCycle.numberStages,roomCycle.sFacility,roomStage.id)" -->
+      <!-- <table>
+        <thead>
+          <th>Facility</th>
+          <th>Room</th>
+          <th>Current Stage</th>
+          <th>Edit</th>    
+          <th>Process</th>
+          <th>Stages</th>
+          <th>Start Time</th>
+          <th>Min End Time</th>
+          <th>Max End Time</th>
+          <th>Manager</th>
+          <th>Phone</th>  
+        </thead>
+        <tbody>
+          <tr *ngFor="let roomCycle of allCycles">    
+            <td>{{roomCycle.sFacility}}</td>
+            <td>{{roomCycle.sRoom}}</td>
+            <td>{{roomCycle.currentStage}}</td>
+            <td><i class="link fa fa-edit" [routerLink]="['/edit-room-stages', roomCycle.cycleID]"></i></td>
+            <td>{{roomCycle.processName}}</td>
+            <td>{{roomCycle.numberStages}}</td>
+            <td>{{roomCycle.startTime}}</td>
+            <td>{{roomCycle.minEndTime}}</td>
+            <td>{{roomCycle.maxEndTime}}</td>
+            <td>{{roomCycle.cycleManager}}</td>
+            <td>{{roomCycle.cycleManagerPhone}}</td> 
+          </tr> 
+        </tbody>
+      </table>
+      
+      <table>
+        <thead>
+          <th>Name</th>
+          <th>Phone</th>
+          <th>Address</th>
+          <th>Primary Manager</th>
+          <th>Starting Month/Year</th>
+          <th>Rooms</th>
+          <th>Edit</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let facility of facilities">
+            <td>{{facility.name}}</td>
+            <td>{{facility.phone}}</td>
+            <td>{{facility.address}}</td>
+            <td>{{facility.primaryManager}}</td>
+            <td>{{facility.StartingMonthYear}}</td>
+            <td>{{facility.Rooms}}</td>
+            <td><i class="link fa fa-edit" [routerLink]="['/enrol-facility', facility.id]" ></i></td>            
+          </tr>
+        </tbody>
+      </table>
+      <table>
+        <thead>
+          <th>Name</th>
+          <th>Phone</th>
+          <th>Address</th>
+          <th>Facility</th>
+          <th>Edit</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let manager of managers">
+            <td>{{manager.name}}</td>
+            <td>{{manager.phone}}</td>
+            <td>{{manager.address}}</td>
+            <td><span *ngFor="let fac of manager.facilities">{{fac}}<span *ngIf="manager.facilities.indexOf(fac) != manager.facilities.length">,</span> </span><br /></td>
+            <td><i class="link fa fa-edit" [routerLink]="['/enrol-manager', manager.id]" ></i></td>
+          </tr>
+        </tbody>
+      </table> -->
+   
+    <table style ="text-align: right">
+      <thead>
+        <th>Stage</th>
+        <th>Temp</th>
+        <th>Co2</th>
+        <th>Voc</th>
+        <th>Humidity</th>
+        <th>Min</th>
+        <th>Max Time</th>
+        <th>Edit</th>
+        <th>Delete</th>
+        <th>Insert</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let roomStage of roomStages">
+          <td> {{roomStage.id-99}}</td>
+          <td> {{ roomStage.reqTemp}}</td>
+          <td> {{ roomStage.reqCo2}}</td> 
+          <td> {{ roomStage.reqVoc}}</td>
+          <td> {{ roomStage.reqHumidity }} </td>
+          <td> {{ roomStage.minTime }} </td>
+          <td> {{ roomStage.maxTime }} </td>           
+          <!-- <td> {{ roomStage.reqCo2 | number : '1.1-1'}} </td> 
+          <td> {{ roomStage.reqTemp | number : '1.1-1' }} </td>
+          <td> {{ roomStage.reqHumidity | number : '1.1-1' }} </td>
+          <td> {{ roomStage.minTime | number : '1.0-0' }} </td>
+          <td> {{ roomStage.maxTime | number : '1.0-0' }} </td>            -->
+          <td><i class="link fa fa-edit"  [routerLink] = "['/edit-stage','ss',roomCycle.sFacility,roomCycle.sRoom,cycleId,roomStage.id]" ></i></td>          
+          <td><i class="link fa fa-edit" (click)="deleteRoomStage(roomCycle.cycleID, roomCycle.numberStages,roomCycle.sFacility,roomStage.id)" ></i></td>          
+          <td><i class="link fa fa-edit" (click)="insertRoomStage(roomCycle.cycleID, roomCycle.numberStages,roomCycle.sFacility,roomStage.id)" ></i></td>   
+        </tr>
+      </tbody>
+    </table>
+    <div class="form-group" style="display: inline-block">
+        <button type="button"  [routerLink] = "['/adjust-room-cycle']" (click)="saveRoomCycle(roomCycle)" style="margin: 15px;">Save Cycle</button>
+    </div>
+    
+  </div>
+</div>
+    

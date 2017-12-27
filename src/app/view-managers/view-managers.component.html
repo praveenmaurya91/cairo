@@ -1,0 +1,20 @@
+
+<table>
+  <thead>
+    <th>Name</th>
+    <th>Phone</th>
+    <th>Address</th>
+    <th>Facilities</th>
+    <th>Edit</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let manager of managers">
+      <td>{{manager.name}}</td>
+      <td>{{manager.phone}}</td>
+      <td>{{manager.address}}</td>
+      <td><span *ngFor="let fac of manager.facilities">{{fac}}<span *ngIf="manager.facilities.indexOf(fac) != manager.facilities.length">,</span> </span><br /></td>
+      <td><i class="link fa fa-edit" [routerLink]="['/enrol-manager', manager.id]" ></i></td>
+    </tr>
+  </tbody>
+</table>
+
