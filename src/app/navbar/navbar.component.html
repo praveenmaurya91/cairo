@@ -1,72 +1,41 @@
 
-<!--
-<div class="example-container" [class.example-is-mobile]="mobileQuery.matches" *ngIf="shouldRun">
-    <mat-toolbar color="primary" class="example-toolbar">
-      <button mat-icon-button (click)="snav.toggle()">
-          <mat-icon>menu</mat-icon>
-          <i class="material-icons">menu</i> 
-        </button>
-      
-      <h1 class="example-app-name">CAIRO</h1>
-    </mat-toolbar>
-  
-    <mat-sidenav-container class="example-sidenav-container"
-                           [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
-      <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
-                   [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
-        <mat-nav-list>
-          <a mat-list-item routerLink="." >{{nav}}</a>
-        </mat-nav-list>
-      </mat-sidenav>
-  
-      <mat-sidenav-content>
-        <p *ngFor="let content of fillerContent">{{content}}</p>
-      </mat-sidenav-content>
-    </mat-sidenav-container>
+  <nav class="navbar">
+    <span class="open-slide">
+      <a href="#" (click)="openSlideMenu()" >
+        <svg width="30" height="30">
+          <path d="M0,5 30,5" stroke="#fff" stroke-width="5" />
+          <path d="M0,14 30,14" stroke="#fff" stroke-width="5" />
+          <path d="M0,23 30,23" stroke="#fff" stroke-width="5" />
+        </svg>
+      </a>
+    </span>
+
+    <ul class="navbar-nav">
+      <li>
+        <a href="#">Home</a>
+      </li>
+      <li>
+        <a href="#">About</a>
+      </li>
+      <li>
+        <a href="#">Services</a>
+      </li>
+      <li>
+        <a href="#">Contact</a>
+      </li>
+    </ul>
+  </nav>
+
+  <div id="side-menu" class="side-nav">
+    <a href="#" class="btn-close" (click)="closeSlideMenu()">&times;</a>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Services</a>
+    <a href="#">Contact</a>
   </div>
-  
--->
+
+  <div id="main">
+    <h1>Responsive Side Menu</h1>
+  </div>
 
 
-
-<!--<mat-tab-group class="demo-tab-group">
-
-    <mat-tab  routerLink="/enrol-manager" label="Enrol Manager">
-   </mat-tab>
-
-    <mat-tab  label="Enrol Facility" routerLink="/enrol-facility">
-    </mat-tab>
-
-    <mat-tab label="View Managers"> 
-    <div routerLink="/view-managers" class="demo-tab-content">
-    </div>
-    </mat-tab>
-
-    <mat-tab  label="View Facilities"> 
-    <div routerLink="/view-facilities" class="demo-tab-content">
-    </div>
-    </mat-tab>
-
-    <mat-tab  label="View Graphs"> 
-    <div routerLink="/view-facility" class="demo-tab-content">
-    </div>
-    </mat-tab>
-
-    <mat-tab  label="View Cycles">
-    <div routerLink="/adjust-room-cycle" class="demo-tab-content">
-    </div>
-    </mat-tab>
-
-    <mat-tab  label="Excel"> 
-    <div routerLink="/excel" class="demo-tab-content">
-    </div>
-    </mat-tab>
-
-    <mat-tab  label="Test Three.js"> 
-    <div routerLink="/test-three" class="demo-tab-content">
-    </div>
-    </mat-tab>
-</mat-tab-group>
-
-
--->
