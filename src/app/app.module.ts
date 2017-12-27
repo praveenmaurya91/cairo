@@ -29,8 +29,6 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { ApiService } from './api-service/api-service.service';
 
 
-
-
 const appRoutes: Routes = [
   { path: 'excel', component: ExcelComponent },
   { path: 'edit-stage/:command/:facilityid/:roomid/:cycleid/:stageid', component: EditStagesComponent },
